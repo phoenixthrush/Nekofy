@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Category</title>
+    <style>
+        :root {
+            --background: #1e1e2e;
+            --foreground: #cdd6f4;
+            --primary: #f5c2e7;
+            --secondary: #f38ba8;
+            --accent: #f9e2af;
+            --border: #30344c;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            padding: 10px;
+            margin: 0;
+        }
+
+        h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        select,
+        button {
+            background-color: var(--background);
+            color: var(--foreground);
+            border: 1px solid var(--border);
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        select:focus,
+        button:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        button {
+            background-color: var(--secondary);
+            color: var(--background);
+        }
+
+        button:hover {
+            background-color: var(--primary);
+        }
+
+        p {
+            margin-top: 10px;
+            color: var(--accent);
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Select Category</h3>
+    <div class="container">
+        <select id="categorySelect">
+            <optgroup label="SFW">
+                <option value="waifu">Waifu</option>
+                <option value="neko">Neko</option>
+                <option value="shinobu">Shinobu</option>
+                <option value="megumin">Megumin</option>
+                <option value="bully">Bully</option>
+                <option value="cuddle">Cuddle</option>
+                <option value="cry">Cry</option>
+                <option value="hug">Hug</option>
+                <option value="awoo">Awoo</option>
+                <option value="kiss">Kiss</option>
+                <option value="lick">Lick</option>
+                <option value="pat">Pat</option>
+                <option value="smug">Smug</option>
+                <option value="bonk">Bonk</option>
+                <option value="yeet">Yeet</option>
+                <option value="blush">Blush</option>
+                <option value="smile">Smile</option>
+                <option value="wave">Wave</option>
+                <option value="highfive">Highfive</option>
+                <option value="handhold">Handhold</option>
+                <option value="nom">Nom</option>
+                <option value="bite">Bite</option>
+                <option value="glomp">Glomp</option>
+                <option value="slap">Slap</option>
+                <option value="kill">Kill</option>
+                <option value="kick">Kick</option>
+                <option value="happy">Happy</option>
+                <option value="wink">Wink</option>
+                <option value="poke">Poke</option>
+                <option value="dance">Dance</option>
+                <option value="cringe">Cringe</option>
+            </optgroup>
+            <optgroup label="NSFW">
+                <option value="waifu_nsfw">Waifu (NSFW)</option>
+                <option value="neko_nsfw">Neko (NSFW)</option>
+                <option value="trap">Trap</option>
+                <option value="blowjob">Blowjob</option>
+            </optgroup>
+        </select>
+        <button id="saveButton">Save</button>
+    </div>
+    <p>You need to manually refresh the page to see changes.</p>
+    <script src="popup.js"></script>
+</body>
+
+</html>
