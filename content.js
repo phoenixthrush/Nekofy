@@ -4,7 +4,7 @@ async function replaceImage(img, type, category) {
     try {
         const response = await fetch(url.replace("neko_nsfw", "neko").replace("waifu_nsfw", "waifu"));
         const data = await response.json();
-        
+
         if (data && data.url) {
             const waifuUrl = data.url;
             img.src = waifuUrl;
@@ -20,7 +20,7 @@ async function replaceImage(img, type, category) {
 async function replaceAllImages(type, category) {
     const images = document.querySelectorAll('img');
     const promises = Array.from(images).map(img => replaceImage(img, type, category));
-    
+
     try {
         await Promise.all(promises);
     } catch (error) {
@@ -61,3 +61,9 @@ browser.storage.sync.get(['type', 'category'])
     .catch(error => {
         console.error('Error retrieving data from storage:', error);
     });
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.action === 'reload') {
+        location.reload();
+    }
+});
