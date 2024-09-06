@@ -45,18 +45,21 @@ function observeNewImages(type, category) {
     observer.observe(document.body, { childList: true, subtree: true });
 }
 
-browser.storage.sync.get(['type', 'category'])
+browser.storage.sync.get(['type', 'category', 'contentScriptEnabled'])
     .then(data => {
         const type = data.type || 'sfw';
         const category = data.category || 'waifu';
+        const contentScriptEnabled = data.contentScriptEnabled ?? true;
 
         if (!type || !category) {
             console.error('Error: Type or category is undefined');
             return;
         }
 
-        replaceAllImages(type, category);
-        observeNewImages(type, category);
+        if (contentScriptEnabled) {
+            replaceAllImages(type, category);
+            observeNewImages(type, category);
+        }
     })
     .catch(error => {
         console.error('Error retrieving data from storage:', error);
